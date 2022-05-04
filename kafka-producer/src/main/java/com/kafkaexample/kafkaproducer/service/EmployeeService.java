@@ -11,7 +11,11 @@ public class EmployeeService {
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
 
-    private final String topic = "chamithKafka";
+    @Autowired
+    private KafkaTemplate<String, Employee> employeeKafkaTemplate;
+
+    private String topic = "chamithKafkaNew";
+    private String topic2 = "chamithKafkaNewUpdate";
 
     public String publicTestMessage(String name){
         kafkaTemplate.send(topic,"Hi"+name+"welcome to our organization");
@@ -19,7 +23,7 @@ public class EmployeeService {
     }
 
     public Employee publishEmployee(Employee employee){
-        kafkaTemplate.send(topic,employee);
+        employeeKafkaTemplate.send(topic2,employee);
         return employee;
     }
 }

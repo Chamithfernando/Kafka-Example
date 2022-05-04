@@ -1,13 +1,15 @@
-package com.kafkaexample.kafkaproducer.entity;
+package com.kafkaexample.kafkaconsumer.entity;
 
 import lombok.Data;
+
 import java.util.UUID;
 
 @Data
-public class Employee {
+public class Employee  {
 
 
-    private UUID id = UUID.randomUUID();
+
+    private UUID id;
     private String name;
     private Integer age;
     private String address;
